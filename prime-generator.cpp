@@ -16,8 +16,10 @@ int main()
         vector<int> sieve(n-m+1,1); // A sieve or a boolean array that stores the list of primes from m to n (1 for prime, 0 for composite)
         for(i=2;i<=32000;i++)
         {
+            /* Proceed only if i is prime*/
             if(primes[i]==1)
             {
+                /* If m is divisible by, we start j from m/i , else from the next value*/
                 if(m%i == 0)
                 {
                     j = m/i;
@@ -25,7 +27,7 @@ int main()
                 else{
                     j = m/i + 1;
                 }
-                //If j comes out to be 1, or less than i
+                /* Very Critical Case: If j comes out to be 1, or less than i*/
                 if( j < i)
                 {
                     j = i;
@@ -43,7 +45,7 @@ int main()
 
         if(m == 1)
         {
-            sieve[0] = 0;
+            sieve[0] = 0; // 1 is always composte
         }
 
         for(i=0;i<n-m+1;i++)
